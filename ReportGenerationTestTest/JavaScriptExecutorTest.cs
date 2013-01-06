@@ -84,7 +84,8 @@ namespace ReportGenerationTestTest
 
 			object[] args = new object[] { testContext, " stringVal ", 10 };
 			object expected = "hello world - Test Name - Test Description - Modified: Test Description stringVal 10";
-			object actual = target.ExecuteFunction(scriptName, functionName, args);
+			var scriptText = new JsFileLoader().JsFile(scriptName);
+			object actual = target.ExecuteFunction(scriptText, functionName, args);
 			Assert.AreEqual(expected, actual);
 		}
 	}

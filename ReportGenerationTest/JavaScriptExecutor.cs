@@ -8,9 +8,9 @@ namespace ReportGenerationTest
 {
 	public class JavaScriptExecutor
 	{
-		public object ExecuteFunction(string scriptName, string functionName, object[] args)
+
+		public object ExecuteFunction(string scriptText, string functionName, object[] args)
 		{
-			var scriptText = new JsFileLoader().JsFile(scriptName);
 			Context cx = Context.enter();
 			try
 			{

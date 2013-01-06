@@ -1,0 +1,17 @@
+﻿<!doctype>
+<html>
+	<head>
+		<title>Customer Report</title>
+	</head>
+	<body>
+		<h1>Customer ${Customer.get_Name()}</h1>
+		<div>
+			<h2>Products</h2>
+			<ul>
+				#foreach ($product in $Customer.get_Products())
+				<li>$product.get_ProductID() - $product.get_ProductName()</li>
+				#end
+			</ul>
+		</div>
+	</body>
+</html>

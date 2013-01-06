@@ -1,0 +1,25 @@
+﻿<!doctype>
+<html>
+	<head>
+		<title>Customer Report</title>
+	</head>
+	<body>
+		<h1>Customer ${Customer.Name}</h1>
+		<div>
+			<h2>Products</h2>
+			Product Count - ${Customer.ProductCount}
+		</div>
+		<div>
+			<h2>Products</h2>
+			<ul>
+				#foreach ($product in $Customer.Products)
+				<li>$product.get_ProductID() - $product.get_ProductName()</li>
+				#end
+			</ul>
+		</div>
+		<div>
+			Debug:
+			${Debug}
+		</div>
+	</body>
+</html>
