@@ -1,19 +1,23 @@
-﻿using ReportGenerationTest;
+﻿using LaunchTechnologies.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
+using ReportGen;
+using ReportGenTest.Mocks;
 
-namespace ReportGenerationTestTest
+namespace ReportGenTest
 {
-
-
+	/// <summary>
+	///This is a test class for ReportGeneratorTest and is intended
+	///to contain all ReportGeneratorTest Unit Tests
+	///</summary>
 	[TestClass()]
-	public class ReportResourcesRepositoryTest
+	public class ReportGeneratorTest
 	{
-
-
 		private TestContext testContextInstance;
 
+		/// <summary>
+		///Gets or sets the test context which provides
+		///information about and functionality for the current test run.
+		///</summary>
 		public TestContext TestContext
 		{
 			get
@@ -57,14 +61,21 @@ namespace ReportGenerationTestTest
 		#endregion
 
 
-		[TestMethod()]
-		public void FindAllReports_Scenario_Behavior()
+		/// <summary>
+		///A test for GetReportHtml
+		///</summary>
+		[TestMethod]
+		public void GetReportHtml_Execute_HtmlReturned()
 		{
-			ReportResourcesRepository target = new ReportResourcesRepository();
+			IReportRepository reportRep = new ReportRepository();
+			IJsLibRepository jsLibRep = new JsLibRepository();
+			IAudit auditModel = new MockAudit();
+			var generator = new ReportGenerator(reportRep, jsLibRep);
+
+			var report = generator.GetReportHtml("report1", auditModel);
 			
-			var reports = target.FindAllReports();
-			
-			// Assert.Inconclusive("Verify the correctness of this test method.");
+			Assert.IsTrue(string.IsNullOrEmpty(report) == false);
+			ResultViewer.ViewResult(report);
 		}
 	}
 }

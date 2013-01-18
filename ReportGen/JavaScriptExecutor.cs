@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using org.mozilla.javascript;
 
-namespace ReportGenerationTest
+namespace ReportGen
 {
 	public class JavaScriptExecutor
 	{

@@ -3,17 +3,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2B18E3A5-7F64-467F-BAA8-C8D05C26C810}</ProjectGuid>
+    <ProjectGuid>{FD14CDF4-A12E-4D21-B4F0-A9017D7A4456}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReportGenerationTestTest</RootNamespace>
-    <AssemblyName>ReportGenerationTestTest</AssemblyName>
+    <RootNamespace>ReportGen</RootNamespace>
+    <AssemblyName>ReportGen</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <IsCompassProject>True</IsCompassProject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -120,47 +119,79 @@
     <Reference Include="LaunchTechnologies.Domain">
       <HintPath>D:\Projects\Launch\ai5\working\Framework\Source\LaunchTechnologies.Domain\bin\Debug\LaunchTechnologies.Domain.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="NVelocity">
       <HintPath>..\packages\NVelocity.1.0.3\lib\NVelocity.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
-      <Visible>False</Visible>
-    </CodeAnalysisDependentAssemblyPaths>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="JavaScriptExecutorTest.cs" />
-    <Compile Include="JsFileLoaderTest.cs" />
-    <Compile Include="MainClassTest.cs" />
+    <Compile Include="GraphPkgResourceLoader.cs" />
+    <Compile Include="IJsLibRepository.cs" />
+    <Compile Include="IReportRepository.cs" />
+    <Compile Include="JavaScriptExecutor.cs" />
+    <Compile Include="JsLib.cs" />
+    <Compile Include="JsLibRepository.cs" />
+    <Compile Include="Report.cs" />
+    <Compile Include="ReportContext\Layout.cs" />
+    <Compile Include="ReportGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportGeneratorTest.cs" />
-    <Compile Include="ReportResourcesRepositoryTest.cs" />
+    <Compile Include="ReportContext\Context.cs" />
+    <Compile Include="ReportContext\ReportHelper.cs" />
+    <Compile Include="ReportContext\NormalizedVelocityContext.cs" />
+    <Compile Include="ReportRepository.cs" />
+    <Compile Include="GraphPkgInfo.cs" />
+    <Compile Include="ReportTemplateResourceLoader.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReportGenerationTest\ReportGenerationTest.csproj">
-      <Project>{1BD1FD74-76D9-46C7-A3F0-9F3A39F9288C}</Project>
-      <Name>ReportGenerationTest</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ReportGen\ReportGen.csproj">
-      <Project>{FD14CDF4-A12E-4D21-B4F0-A9017D7A4456}</Project>
-      <Name>ReportGen</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="config.rb" />
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="GraphPkg\Layouts\Layout.html" />
+    <Content Include="sass\base\_framework.scss" />
+    <Content Include="sass\base\_reporttable.scss" />
+    <Content Include="sass\base\_dls.scss" />
+    <Content Include="sass\base\_cols.scss" />
+    <Content Include="sass\base\_frame.scss" />
+    <Content Include="sass\base\_foundation.scss" />
+    <Content Include="sass\default\theme.css">
+      <DependentUpon>theme.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\default\theme.min.css">
+      <DependentUpon>theme.scss</DependentUpon>
+    </Content>
+    <Content Include="sass\images\default\signature.png" />
+    <Content Include="sass\mixins\_box-shadow.scss" />
+    <Content Include="sass\mixins\_border-radius.scss" />
+    <Content Include="sass\mixins\_col.scss" />
+    <Content Include="sass\mixins\_shared.scss" />
+    <Content Include="sass\mixins\_text-shadow.scss" />
+    <Content Include="sass\mixins\_clearfix.scss" />
+    <Content Include="sass\mixins\_box-sizing.scss" />
+    <Content Include="sass\mixins\_experimental.scss" />
+    <Content Include="sass\mixins\_reset.scss" />
+    <Content Include="sass\base\_base-reportvariables.scss" />
+    <Content Include="sass\base\_theme.scss" />
+    <Content Include="sass\default\theme.scss" />
+    <Content Include="sass\images\default\logo.png" />
+    <Content Include="sass\base\_base-variables.scss" />
+    <Content Include="sass\mixins\_support.scss" />
+    <Content Include="GraphPkg\JsLib\underscore-min.js" />
+    <Content Include="GraphPkg\JsLib\util.js" />
+    <Content Include="GraphPkg\Reports\report1\info.txt" />
+    <Content Include="GraphPkg\Reports\report1\report.js" />
+    <Content Include="GraphPkg\Reports\report1\report.html" />
+    <Content Include="GraphPkg\Themes\default\theme.css" />
+    <Content Include="HtmlTest\Layout.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

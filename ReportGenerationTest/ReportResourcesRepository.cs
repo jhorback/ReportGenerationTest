@@ -37,7 +37,6 @@ namespace ReportGenerationTest
 				        Script = scriptText,
 						TemplatePath = "\\" + folder.Name + "\\template.html"
 				    };
-				// jch! - would want to load the theme css and parse images as well
 				reports.Add(report);
 			}
 			return reports;

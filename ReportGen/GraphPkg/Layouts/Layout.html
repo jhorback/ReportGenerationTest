@@ -1,0 +1,53 @@
+﻿<!doctype>
+<html>
+	<head>
+		<title>${Layout.Title}</title>
+		<style>
+			${Layout.CSS}
+		</style>
+	</head>
+	<body>
+		<div class="frame-header">
+			<div class="frame-header-left">
+				<div></div>
+			</div>
+			<div class="frame-header-title">
+				<h1>${Layout.Title} - Wednesday, January 16, 2013</h1>
+			</div>
+			<div class="frame-header-right">
+				<div></div>
+			</div>
+		</div>
+		<div class="frame-subheader">
+			
+				<dl class="dl-event">
+					<dt>Dealer</dt>
+					<dd>${Audit.DealerDBAName}</dd>
+					<dd class="dl-event-multi">${Audit.Street1}</dd>
+					<dd class="dl-event-multi">${Audit.City}, ${Audit.State} ${Audit.Zip}</dd>
+					<dd class="dl-event-multi">${Audit.WorkPhone}</dd>
+					<dt>Audit contact</dt>
+					<dd>${Audit.DealerContactName}</dd>
+					<dt>Title</dt>
+					<dd>${Audit.DealerContactTitle}</dd>
+				</dl>
+			
+				<dl class="dl-event">
+					<dt>Audit date</dt>
+					<dd>
+						#if ($Audit.IsComplete)
+							$Audit.CompletedDate
+						#end
+					</dd>
+					<dt>Auditor</dt>
+					<dd>${Audit.CompletedUser.Name}</dd>
+					<dt>Company</dt>
+					<dd>${Audit.CompletedUser.ClientName}</dd>
+				</dl>
+			
+		</div>
+		
+		#parse($Layout.ReportTemplate)
+
+	</body>
+</html>

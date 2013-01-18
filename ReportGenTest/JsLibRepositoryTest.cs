@@ -1,19 +1,26 @@
-﻿using ReportGenerationTest;
+﻿using ReportGen;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 
-namespace ReportGenerationTestTest
+namespace ReportGenTest
 {
-
-
+    
+    
+    /// <summary>
+    ///This is a test class for JsLibRepositoryTest and is intended
+    ///to contain all JsLibRepositoryTest Unit Tests
+    ///</summary>
 	[TestClass()]
-	public class ReportResourcesRepositoryTest
+	public class JsLibRepositoryTest
 	{
 
 
 		private TestContext testContextInstance;
 
+		/// <summary>
+		///Gets or sets the test context which provides
+		///information about and functionality for the current test run.
+		///</summary>
 		public TestContext TestContext
 		{
 			get
@@ -57,14 +64,23 @@ namespace ReportGenerationTestTest
 		#endregion
 
 
-		[TestMethod()]
-		public void FindAllReports_Scenario_Behavior()
+		/// <summary>
+		///A test for GetJsLib
+		///</summary>
+		[TestMethod]
+		public void GetJsLib_Exectue_SourceIsNotNullOrEmpty()
 		{
-			ReportResourcesRepository target = new ReportResourcesRepository();
-			
-			var reports = target.FindAllReports();
-			
-			// Assert.Inconclusive("Verify the correctness of this test method.");
+			var target = new JsLibRepository();
+			var actual = target.GetJsLib();
+			Assert.IsTrue(string.IsNullOrEmpty(actual.Source) == false);
+		}
+
+		[TestMethod]
+		public void GetJsLib_Exectue_SourceBeginsWithSemicolon()
+		{
+			var target = new JsLibRepository();
+			var actual = target.GetJsLib();
+			Assert.IsTrue(actual.Source.IndexOf(';') == 0);
 		}
 	}
 }

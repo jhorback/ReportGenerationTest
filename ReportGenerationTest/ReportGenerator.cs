@@ -10,7 +10,7 @@ using NVelocity.Runtime;
 using NVelocity.Runtime.Resource.Loader;
 using ReportGenerationTest.Domain;
 
-namespace ReportGenerationTest.Scripts
+namespace ReportGenerationTest
 {
 	public class ReportGenerator
 	{

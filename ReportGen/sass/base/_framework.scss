@@ -1,0 +1,25 @@
+
+
+.clear			{ clear: both }
+.stretch		{ width: 100% !important; }
+.fit			{ max-width:100%; display:block; border:0; }
+.centered		{ margin: auto; }
+.display-none	{ display: none; }
+.display-block	{ display: block; }
+.display-inline { display: inline; }
+.display-inline-block
+				{ display: inline-block; }
+.relative		{ position : relative; }
+.nowrap			{ white-space: nowrap;}
+	
+.float-left		{ float: left; }
+.float-right	{ float: right; }
+	
+.clear-left		{ clear: left; }
+.clear-right	{ clear: right; }
+.clear-fix		{ @include clearfix; } 
+	
+.text-left		{ text-align: left; }
+.text-center	{ text-align:center; }
+.text-right		{ text-align: right; }
+.text-justify	{ text-align: justify; }

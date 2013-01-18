@@ -1,5 +1,4 @@
 ﻿using ReportGenerationTest.Domain;
-using ReportGenerationTest.Scripts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using ReportGenerationTest;

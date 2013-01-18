@@ -1,0 +1,103 @@
+@import "base-variables";
+@import "base-reportvariables";
+@import "../mixins/clearfix";
+@import "../mixins/text-shadow";
+@import "../mixins/border-radius";
+@import "../mixins/box-shadow";
+
+
+//div { border: 1px solid red; }
+
+@mixin frame-header {
+	.frame-header {
+		position: relative;
+		background-color: $base-primary-background-color;
+		padding: .5em;
+		color: #FFF;
+		@include clearfix;		
+		@include box-shadow(0em, 1px, .5em, 0, #333);		
+		z-index: 1;
+	}
+
+	.frame-header-left {
+		width: 25%;
+		float: left;		
+		div {
+			background: no-repeat;
+			height: $base-logo-height;
+			width: $base-logo-width;
+			background-image: inline-image($base-logo);
+		}				
+	}
+
+	.frame-header-title {
+		width: 50%;
+		float: left;
+		text-align: center;
+		background: $base-primary-background-color;
+		@include clearfix;
+		h1 {
+			min-height: $base-logo-height;
+			@include single-text-shadow(rgba(#000, 0.4), 2px, 2px, 3px); 
+			padding: .5em 0;
+			font-size: 1.6em;			
+		}		
+	}
+
+	.frame-header-right {
+		width: 25%;
+		float: right;
+		div {
+		}
+	}
+
+
+	.frame-subheader {
+		//margin: 1em;
+		background: #eee;
+		//font-size: .8em;
+		//border-bottom: 1px solid $base-primary-background-color;
+	
+		//@include border-radius;
+		@include clearfix;	
+		@include inset-box-shadow(.5em, #555);
+
+		.dl-event {
+			width: 45%;
+			float: left;
+			padding: 1em 1em .5em 1em;
+		}
+	}
+}
+
+@mixin frame-body {
+	.frame-body {
+		margin: 2em 1em;
+	}
+}
+
+@mixin frame-footer {
+	.frame-footer {
+		background-color: $base-primary-background-color;
+		color: $base-primary-color;
+		padding: .5em 2.5em;
+		//margin: 1em;		
+		//@include border-radius;
+		
+		div {
+			font-size: 1.2em;
+		}
+	}
+	.frame-footer-sig {
+		background: $base-background-color;
+		padding: .5em;
+		@include border-radius;
+		@include inset-box-shadow(.5em, #000);
+	}
+}
+
+
+@include frame-header;
+@include frame-body;
+@include frame-footer;
+

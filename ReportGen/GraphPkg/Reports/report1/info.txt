@@ -1,0 +1,10 @@
+﻿;http://code.google.com/p/ini-parser/wiki/Usage
+
+Name = Audit Recap Report
+Description = A summary and detail of the audit.
+
+;Theme = default
+;Theme = /themes/default/theme.css
+;Script = report.js
+;Template = report.html
+;TemplateLayout = /layouts/layout.html

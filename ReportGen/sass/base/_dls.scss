@@ -1,0 +1,71 @@
+@import "base-variables";
+
+dl.dl-event {
+	padding: 0;
+	margin: 0;
+
+	dt {		
+		display: block;
+		float: left;		
+		clear: left;
+		width: 30%;
+		font-weight: bold;
+		margin-top: .5em;
+	}
+
+	 dd {
+		margin: 0;
+		display: block;
+		float: left;		
+		border-left: 1px solid $base-primary-background-color;		
+		width: 60%;
+		padding-left: .5em;
+		margin-top: .5em;		
+		&.dl-event-multi {
+			margin-left: 30%;
+			margin-top: 0;
+		}
+	}
+
+
+//	padding: 0;
+//	margin: 0;
+//
+//	dt {		
+//		left: 0;
+//		width: 30%;
+//		font-weight: bold;
+//	}
+//
+//	 dd {
+//		position: relative;
+//		top: -1.4em;
+//		border-left: 1px solid $base-primary-background-color;
+//		margin: 0 0 0 30%;
+//		padding: 0 0 0em .5em;
+//	}
+}
+
+
+dl.dl-table-display {
+	width: 100%;
+	margin: 0em 0;
+	padding: 0;
+	xxxborder-bottom: 1px solid #999;
+	dt {
+		clear: left;
+		float: left;
+		width: 40%;
+		margin: 0;
+		padding: .5em;
+		xxxborder-top: 1px solid #999;
+		font-weight: bold;
+	}
+	dd {
+		float: left;
+		width: 60%;
+		margin: 0;
+		padding: .5em;
+		xxxborder-top: 1px solid #999;
+	}
+}

@@ -1,0 +1,42 @@
+@import "base-variables";
+@import "../mixins/border-radius";
+
+
+.reporttable {
+	//border: 1px solid $base-primary-background-color;
+	border: 3px solid ddd;
+	@include border-radius;
+	
+	& > h2 {
+		background: #ddd;
+		font-size: 1.3em;
+		font-weight: bold;
+		//text-align: center;
+		margin: 0;
+		padding: .2em .5em;
+		@include border-top-radius;
+		//border-bottom: 1px solid $base-primary-background-color;
+	}
+
+//	tbody tr:nth-child(odd) {
+//		background: #EFEFEF;
+//	}
+
+	tbody tr {
+		border-top: 1px solid #EFEFEF;
+	}
+
+	tfoot {
+		 td {
+			background: #ddd;
+			font-style: normal;
+			font-weight: bold;
+		}
+		td:first-child {
+			@include border-bottom-left-radius;
+		}
+		td:last-child {
+			@include border-bottom-right-radius;
+		}
+	}
+}

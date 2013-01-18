@@ -129,10 +129,12 @@
     <Compile Include="ReportResources.cs" />
     <Compile Include="ReportResourcesRepository.cs" />
     <Compile Include="Domain\Customer.cs" />
-    <Compile Include="Scripts\ReportGenerator.cs" />
+    <Compile Include="ReportGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\Themes\default\" />

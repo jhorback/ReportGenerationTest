@@ -6,11 +6,11 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2B18E3A5-7F64-467F-BAA8-C8D05C26C810}</ProjectGuid>
+    <ProjectGuid>{962A2813-1D6B-4648-813C-AC4BE3C2ECBD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReportGenerationTestTest</RootNamespace>
-    <AssemblyName>ReportGenerationTestTest</AssemblyName>
+    <RootNamespace>ReportGenTest</RootNamespace>
+    <AssemblyName>ReportGenTest</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -140,25 +140,26 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JavaScriptExecutorTest.cs" />
-    <Compile Include="JsFileLoaderTest.cs" />
-    <Compile Include="MainClassTest.cs" />
+    <Compile Include="AuditModelTest.cs" />
+    <Compile Include="GraphPkgResourceLoaderTest.cs" />
+    <Compile Include="JsLibRepositoryTest.cs" />
+    <Compile Include="Mocks\AuditCharge.cs" />
+    <Compile Include="Mocks\AuditModel.cs" />
+    <Compile Include="Mocks\AuditUnit.cs" />
+    <Compile Include="Mocks\MockAudit.cs" />
+    <Compile Include="Mocks\NonInventoryUnit.cs" />
+    <Compile Include="Mocks\Payment.cs" />
+    <Compile Include="Mocks\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportGeneratorTest.cs" />
-    <Compile Include="ReportResourcesRepositoryTest.cs" />
+    <Compile Include="ReportRepositoryTest.cs" />
+    <Compile Include="ResultViewer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReportGenerationTest\ReportGenerationTest.csproj">
-      <Project>{1BD1FD74-76D9-46C7-A3F0-9F3A39F9288C}</Project>
-      <Name>ReportGenerationTest</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ReportGen\ReportGen.csproj">
       <Project>{FD14CDF4-A12E-4D21-B4F0-A9017D7A4456}</Project>
       <Name>ReportGen</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,19 +1,27 @@
-﻿using ReportGenerationTest;
+﻿using ReportGen.ReportContext;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
+using LaunchTechnologies.Domain;
 
-namespace ReportGenerationTestTest
+namespace ReportGenTest
 {
-
-
-	[TestClass()]
-	public class ReportResourcesRepositoryTest
+    
+    
+    /// <summary>
+    ///This is a test class for AuditModelTest and is intended
+    ///to contain all AuditModelTest Unit Tests
+    ///</summary>
+	[TestClass]
+	public class AuditModelTest
 	{
 
 
 		private TestContext testContextInstance;
 
+		/// <summary>
+		///Gets or sets the test context which provides
+		///information about and functionality for the current test run.
+		///</summary>
 		public TestContext TestContext
 		{
 			get
@@ -57,14 +65,15 @@ namespace ReportGenerationTestTest
 		#endregion
 
 
-		[TestMethod()]
-		public void FindAllReports_Scenario_Behavior()
+		/// <summary>
+		///A test for op_Implicit
+		///</summary>
+		[TestMethod]
+		public void op_Implicit_scenario_behavior()
 		{
-			ReportResourcesRepository target = new ReportResourcesRepository();
-			
-			var reports = target.FindAllReports();
-			
-			// Assert.Inconclusive("Verify the correctness of this test method.");
+			//Audit audit = new Audit();
+			//IAuditModel auditModel = (AuditModel) audit;
+			//Assert.IsNotNull(auditModel);
 		}
 	}
 }
