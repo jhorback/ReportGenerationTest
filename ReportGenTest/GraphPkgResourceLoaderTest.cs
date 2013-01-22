@@ -1,6 +1,5 @@
-﻿using ReportGen;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ReportGen;
 
 namespace ReportGenTest
 {

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using IniParser;
 using System.Linq;
+using IniParser;
 
 namespace ReportGen
 {

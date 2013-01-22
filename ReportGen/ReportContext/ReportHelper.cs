@@ -1,5 +1,4 @@
 ﻿using System;
-using LaunchTechnologies.Domain;
 
 namespace ReportGen.ReportContext
 {

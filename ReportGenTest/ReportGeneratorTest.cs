@@ -1,4 +1,7 @@
-﻿using LaunchTechnologies.Domain;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using LaunchTechnologies.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ReportGen;
 using ReportGen.ReportContext;
@@ -94,6 +97,51 @@ namespace ReportGenTest
 			var actual = context.logger.getLog()[0];
 
 			Assert.AreEqual(expected, actual);
+		}
+
+
+		[TestMethod]
+		public void GetReportHtml_RenderWithWkhtmltopdf()
+		{
+			
+			IReportRepository reportRep = new ReportRepository();
+			IAudit auditModel = new MockAudit();
+			var generator = new ReportGenerator(reportRep);
+
+			var report = generator.GetReportHtml("report1", auditModel);
+
+			var wkPath = Path.Combine(GraphPkgInfo.ProjectDir, "..", "lib", "wkhtmltopdf", "wkhtmltopdf.exe");
+			var htmlFilePath = ResultViewer.CreateResult(report, "results.html");
+			var pdfFilePath = ResultViewer.GetResultFilePath("wkhtmltopdf-test.pdf");
+			if (File.Exists(pdfFilePath)) File.Delete(pdfFilePath);
+
+
+			var args = new List<string>();
+			args.Add("--margin-left 0 --margin-right 0 --margin-top 0 --margin-bottom 0");
+			args.Add(htmlFilePath);
+			args.Add(pdfFilePath);
+
+			//http://code.google.com/p/wkhtmltopdf/wiki/Usage - some examples of use with streams
+			var proc = new Process();
+			proc.StartInfo.UseShellExecute = false;
+			proc.StartInfo.CreateNoWindow = true;
+			proc.StartInfo.FileName = wkPath;
+			proc.StartInfo.Arguments = string.Join(" ", args);
+			proc.StartInfo.RedirectStandardOutput = true;
+			proc.StartInfo.RedirectStandardError = true;
+			
+			try
+			{
+				proc.Start();
+				proc.WaitForExit();
+			}
+			catch (System.Exception e)
+			{
+				Assert.Fail(e.Message);
+			}
+
+			Assert.IsTrue(File.Exists(pdfFilePath));
+			ResultViewer.OpenResult(pdfFilePath);
 		}
 	}
 }

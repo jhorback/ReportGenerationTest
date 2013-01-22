@@ -1,7 +1,5 @@
-﻿using ReportGenerationTest;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ReportGenerationTest;
 
 namespace ReportGenerationTestTest
 {

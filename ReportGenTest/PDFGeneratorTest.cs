@@ -1,7 +1,6 @@
 ﻿using LaunchTechnologies.Domain;
-using ReportGen;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using ReportGen;
 using ReportGenTest.Mocks;
 
 namespace ReportGenTest

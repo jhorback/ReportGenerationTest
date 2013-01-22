@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using org.mozilla.javascript;
+﻿using org.mozilla.javascript;
 
 namespace ReportGen
 {

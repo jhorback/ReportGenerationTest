@@ -1,7 +1,6 @@
-﻿using ReportGenerationTest.Domain;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ReportGenerationTest;
+using ReportGenerationTest.Domain;
 
 namespace ReportGenerationTestTest
 {

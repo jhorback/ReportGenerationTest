@@ -1,7 +1,4 @@
-﻿using ReportGen.ReportContext;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using LaunchTechnologies.Domain;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ReportGenTest
 {

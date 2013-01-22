@@ -148,10 +148,6 @@
     <Compile Include="ReportResourcesRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReportGenerationTest\ReportGenerationTest.csproj">
-      <Project>{1BD1FD74-76D9-46C7-A3F0-9F3A39F9288C}</Project>
-      <Name>ReportGenerationTest</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ReportGen\ReportGen.csproj">
       <Project>{FD14CDF4-A12E-4D21-B4F0-A9017D7A4456}</Project>
       <Name>ReportGen</Name>
