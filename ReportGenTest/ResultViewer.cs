@@ -12,23 +12,21 @@ namespace ReportGenTest
 	{
 		public static void ViewResult(string html)
 		{
-			var process = new Process();
-			process.StartInfo.UseShellExecute = true;
-
-			var resultsDir = Path.Combine(GraphPkgInfo.ProjectDir, "results");
-			if (Directory.Exists(resultsDir) == false)
-			{
-				Directory.CreateDirectory(resultsDir);
-			}
-
-			var resultFilePath = Path.Combine(resultsDir, "results.html");
+			var resultFilePath = GetResultFilePath("results.html");
 			using (StreamWriter sw = File.CreateText(resultFilePath))
 			{
 				sw.Write(html);
 			}
 
-			process.StartInfo.FileName = resultFilePath;
+			OpenResult(resultFilePath);
+		}
 
+		public static void OpenResult(string filePath)
+		{
+			// return;
+			var process = new Process();
+			process.StartInfo.UseShellExecute = true;
+			process.StartInfo.FileName = filePath;
 			try
 			{
 				process.Start();
@@ -37,6 +35,11 @@ namespace ReportGenTest
 			{
 				Console.WriteLine(e.Message);
 			}
+		}
+
+		public static string GetResultFilePath(string filename)
+		{
+			return Path.Combine(GraphPkgInfo.ProjectDir, "results", filename);
 		}
 	}
 }

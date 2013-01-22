@@ -1,0 +1,14 @@
+@import "base-variables";
+
+.valuetable {
+	border-spacing: 3;
+	border-collapse: separate;
+
+	.label {
+		font-weight: bold;
+		vertical-align: top;
+	}
+	.value {
+		border-left: 1px solid $base-primary-background-color;	
+	}
+}

@@ -122,8 +122,12 @@
     <Reference Include="NVelocity">
       <HintPath>..\packages\NVelocity.1.0.3\lib\NVelocity.dll</HintPath>
     </Reference>
+    <Reference Include="pd4ml">
+      <HintPath>..\lib\PD4ML\pd4ml.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -132,11 +136,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GraphPkgResourceLoader.cs" />
-    <Compile Include="IJsLibRepository.cs" />
     <Compile Include="IReportRepository.cs" />
     <Compile Include="JavaScriptExecutor.cs" />
-    <Compile Include="JsLib.cs" />
-    <Compile Include="JsLibRepository.cs" />
+    <Compile Include="PDFGenerator.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="ReportContext\Layout.cs" />
     <Compile Include="ReportGenerator.cs" />
@@ -152,21 +154,32 @@
     <None Include="config.rb" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Folder Include="results\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GraphPkg\JsLib\ReportGenerator.js">
+      <Compile>True</Compile>
+      <Minify>False</Minify>
+      <IncludedFiles>GraphPkg\JsLib\underscore-min.js|GraphPkg\JsLib\util.js</IncludedFiles>
+    </Content>
     <Content Include="GraphPkg\Layouts\Layout.html" />
+    <Content Include="GraphPkg\Reports\report1\report.combined.js">
+      <DependentUpon>report.js</DependentUpon>
+    </Content>
+    <Content Include="GraphPkg\Reports\report1\report.min.js">
+      <DependentUpon>report.js</DependentUpon>
+    </Content>
+    <Content Include="GraphPkg\Reports\_tests\Mocks\MockContext.js" />
+    <Content Include="GraphPkg\Reports\_tests\Mocks\qunit.js" />
+    <Content Include="GraphPkg\Reports\_tests\report1.test.js" />
+    <Content Include="sass\base\_valuetable.scss" />
     <Content Include="sass\base\_framework.scss" />
     <Content Include="sass\base\_reporttable.scss" />
     <Content Include="sass\base\_dls.scss" />
     <Content Include="sass\base\_cols.scss" />
     <Content Include="sass\base\_frame.scss" />
     <Content Include="sass\base\_foundation.scss" />
-    <Content Include="sass\default\theme.css">
-      <DependentUpon>theme.scss</DependentUpon>
-    </Content>
-    <Content Include="sass\default\theme.min.css">
-      <DependentUpon>theme.scss</DependentUpon>
-    </Content>
     <Content Include="sass\images\default\signature.png" />
     <Content Include="sass\mixins\_box-shadow.scss" />
     <Content Include="sass\mixins\_border-radius.scss" />
@@ -186,7 +199,11 @@
     <Content Include="GraphPkg\JsLib\underscore-min.js" />
     <Content Include="GraphPkg\JsLib\util.js" />
     <Content Include="GraphPkg\Reports\report1\info.txt" />
-    <Content Include="GraphPkg\Reports\report1\report.js" />
+    <Content Include="GraphPkg\Reports\report1\report.js">
+      <Compile>True</Compile>
+      <Minify>True</Minify>
+      <IncludedFiles>GraphPkg\JsLib\underscore-min.js|GraphPkg\JsLib\util.js|GraphPkg\JsLib\ReportGenerator.js</IncludedFiles>
+    </Content>
     <Content Include="GraphPkg\Reports\report1\report.html" />
     <Content Include="GraphPkg\Themes\default\theme.css" />
     <Content Include="HtmlTest\Layout.html" />

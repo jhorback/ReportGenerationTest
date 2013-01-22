@@ -5,6 +5,7 @@
 		<link rel="Stylesheet" href="../GraphPkg/Themes/default/theme.css" />
 	</head>
 	<body>
+		<div class="frame">
 		<div class="frame-header">
 			<div class="frame-header-left">
 				<div></div>
@@ -18,17 +19,53 @@
 		</div>
 		<div class="frame-subheader">
 			
-				<dl class="dl-event">
-					<dt>Dealer</dt>
-					<dd>Acura North Scottsdale</dd>
-					<dd class="dl-event-multi">7007 E CHAUNCEY LANE</dd>
-					<dd class="dl-event-multi">PHOENIX, AZ 85054</dd>
-					<dd class="dl-event-multi">(480) 538-6833</dd>
-					<dt>Audit contact</dt>
-					<dd>Cheryl Ochoa</dd>
-					<dt>Title</dt>
-					<dd></dd>
-				</dl>
+			<table class="valuetable">
+				<tr>
+					<td class="label">Dealer</td>
+					<td class="value">
+						Acura North Scottsdale<br />
+						7007 E CHAUNCEY LANE<br />
+						PHOENIX, AZ 8505E<br />
+						(480) 538-6833
+					</td>
+				</tr>
+				<tr>
+					<td class="label">Audit contact</td>
+					<td class="value">Cheryl Ochoa</td>
+				</tr>
+				<tr>
+					<td class="label">Title</td>
+					<td class="value"></td>
+				</tr>
+			</table>
+			
+			<table class="valuetable">
+				<tr>
+					<td class="label">Audit date</td>
+					<td class="value"></td>
+				</tr>
+				<tr>
+					<td class="label">Auditor</td>
+					<td class="value">Joe Philbin</td>
+				</tr>
+				<tr>
+					<td class="label">Company</td>
+					<td class="value">Launch Technologies</td>
+				</tr>
+			</table>
+
+
+			<!--<dl class="dl-event">
+			    	<dt>Dealer</dt>
+			    	<dd>Acura North Scottsdale</dd>
+			    	<dd class="dl-event-multi">7007 E CHAUNCEY LANE</dd>
+			    	<dd class="dl-event-multi">PHOENIX, AZ 85054</dd>
+			    	<dd class="dl-event-multi">(480) 538-6833</dd>
+			    	<dt>Audit contact</dt>
+			    	<dd>Cheryl Ochoa</dd>
+			    	<dt>Title</dt>
+			    	<dd></dd>
+			    </dl>
 			
 				<dl class="dl-event">
 					<dt>Audit date</dt>
@@ -37,7 +74,7 @@
 					<dd>Joe Philbin</dd>
 					<dt>Company</dt>
 					<dd>Launch Technologies</dd>
-				</dl>
+				</dl>-->
 			
 		</div>
 		<div class="frame-body">
@@ -109,14 +146,16 @@
 						</tr>
 					</tbody>
 					<tfoot>
-						<td>Totals</td>
-						<td class="text-right">104</td>
-						<td class="text-right">$3,773,056.27</td>
-						<td class="text-right">$0.00</td>
-						<td class="text-right">$3,773,056.27</td>
-						<td class="text-right"></td>
-						<td class="text-right"></td>
-						<td class="text-right"></td>
+						<tr class="reporttable-footer">
+							<td>Totals</td>
+							<td class="text-right">104</td>
+							<td class="text-right">$3,773,056.27</td>
+							<td class="text-right">$0.00</td>
+							<td class="text-right">$3,773,056.27</td>
+							<td class="text-right"></td>
+							<td class="text-right"></td>
+							<td class="text-right"></td>
+						</tr>
 					</tfoot>
 				</table>
 			</div>
@@ -136,6 +175,7 @@
 			<div>
 				Joe Dealer
 			</div>
+		</div>
 		</div>
 	</body>
 </html>

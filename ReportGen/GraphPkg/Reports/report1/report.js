@@ -1,15 +1,27 @@
-﻿
+﻿ReportGenerator.extend({
+	generate: function () {
 
-var generateReport = function (context) {
-
-	context.get_Template().put("Debug", "foo1");
-
+		this.contextTest();
+		this.logMessageTest();
+		this.generateErrorTest();
+		
+	},
 	
-	context._Template.put("Client", {
-		Name: context.get_Audit().get_ClientName()
-	});
-
-	var sigBytes = context.get_Audit().GetSignature().get_Content();
-	var sigSrc = context.get_Helper().GetImageSrc(sigBytes);
-	context.get_Template().put("SignatureSrc", sigSrc);
-};
+	contextTest: function () {
+		var sigBytes = this.audit.GetSignature().get_Content();
+		var sigSrc = this.helper.GetImageSrc(sigBytes);
+		this.template.put("SignatureSrc", sigSrc);
+	},
+	
+	logMessageTest: function () {
+		this.logger.log("Here is a log message");
+	},
+	
+	generateErrorTest: function () {
+		var generateError = this.template.get("GenerateError");
+		this.logger.log("Generate Error: " + generateError);
+		if (util.bool(generateError) === true) {
+			throw new Error("Testing errors caused by report generation.");
+		}
+	}
+});

@@ -7,11 +7,21 @@
 		var str = "";
 		for (var key in object) {
 			try {
-				str += " -------------------- " + key + " : " + object[key];
+				str += key + " : " + object[key] + "<br>";
 			} catch (e) {
-				str += " -------------------- " + key + " : error reading - " + printObject(e);
+				str += key + " : error reading:<br>" + printObject(e);
 			}
 		}
 		return str;
+	},
+	
+	bool: function (value) {
+		if (String(value) === "True") {
+			return true;
+		}
+		if (String(value) === "False") {
+			return false;
+		}
+		return value;
 	}
 };

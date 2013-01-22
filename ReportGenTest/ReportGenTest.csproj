@@ -125,12 +125,16 @@
     <Reference Include="NVelocity">
       <HintPath>..\packages\NVelocity.1.0.3\lib\NVelocity.dll</HintPath>
     </Reference>
+    <Reference Include="pd4ml">
+      <HintPath>..\lib\PD4ML\pd4ml.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -142,7 +146,6 @@
   <ItemGroup>
     <Compile Include="AuditModelTest.cs" />
     <Compile Include="GraphPkgResourceLoaderTest.cs" />
-    <Compile Include="JsLibRepositoryTest.cs" />
     <Compile Include="Mocks\AuditCharge.cs" />
     <Compile Include="Mocks\AuditModel.cs" />
     <Compile Include="Mocks\AuditUnit.cs" />
@@ -150,6 +153,7 @@
     <Compile Include="Mocks\NonInventoryUnit.cs" />
     <Compile Include="Mocks\Payment.cs" />
     <Compile Include="Mocks\UserModel.cs" />
+    <Compile Include="PDFGeneratorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportGeneratorTest.cs" />
     <Compile Include="ReportRepositoryTest.cs" />

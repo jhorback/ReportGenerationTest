@@ -5,7 +5,7 @@ namespace ReportGen
 	{
 		public Report()
 		{
-			ScriptFile = "report.js";
+			ScriptFile = "report.min.js";
 			TemplateFile = "report.html";
 			TemplateLayoutFile = "/layouts/layout.html";
 			ThemeFile = "/themes/default/theme.css";

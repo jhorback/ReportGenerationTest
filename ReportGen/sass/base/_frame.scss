@@ -9,14 +9,21 @@
 //div { border: 1px solid red; }
 
 @mixin frame-header {
+	.frame {
+		max-width: 1600px;
+		margin: auto;
+		//border: 1px solid #CCC
+	}
+
 	.frame-header {
 		position: relative;
 		background-color: $base-primary-background-color;
 		padding: .5em;
 		color: #FFF;
-		@include clearfix;		
+		@include clearfix;
+		overflow: hidden;	
 		@include box-shadow(0em, 1px, .5em, 0, #333);		
-		z-index: 1;
+		// border: 1px solid red;
 	}
 
 	.frame-header-left {
@@ -26,7 +33,7 @@
 			background: no-repeat;
 			height: $base-logo-height;
 			width: $base-logo-width;
-			background-image: inline-image($base-logo);
+			background-image: inline-image($base-logo);			
 		}				
 	}
 
@@ -36,11 +43,13 @@
 		text-align: center;
 		background: $base-primary-background-color;
 		@include clearfix;
+		overflow: hidden;
 		h1 {
-			min-height: $base-logo-height;
+			// min-height: $base-logo-height;
 			@include single-text-shadow(rgba(#000, 0.4), 2px, 2px, 3px); 
 			padding: .5em 0;
-			font-size: 1.6em;			
+			font-size: 1.6em;
+			margin: 0;
 		}		
 	}
 
@@ -59,19 +68,27 @@
 		//border-bottom: 1px solid $base-primary-background-color;
 	
 		//@include border-radius;
-		@include clearfix;	
+		@include clearfix;
+		overflow: hidden;
 		@include inset-box-shadow(.5em, #555);
 
-		.dl-event {
+//		.dl-event {
+//			width: 45%;
+//			float: left;
+//			padding: 1em 1em .5em 1em;
+//		}
+		.valuetable {
+			font-size: .9em;
 			width: 45%;
 			float: left;
-			padding: 1em 1em .5em 1em;
+			margin: 1em 1em .5em 1em;
 		}
 	}
 }
 
 @mixin frame-body {
 	.frame-body {
+		clear: both;
 		margin: 2em 1em;
 	}
 }
@@ -91,6 +108,7 @@
 	.frame-footer-sig {
 		background: $base-background-color;
 		padding: .5em;
+		margin: .2em;
 		@include border-radius;
 		@include inset-box-shadow(.5em, #000);
 	}

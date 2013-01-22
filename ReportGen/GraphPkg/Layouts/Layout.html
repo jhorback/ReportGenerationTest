@@ -7,6 +7,7 @@
 		</style>
 	</head>
 	<body>
+		<div class="frame">
 		<div class="frame-header">
 			<div class="frame-header-left">
 				<div></div>
@@ -20,34 +21,73 @@
 		</div>
 		<div class="frame-subheader">
 			
-				<dl class="dl-event">
-					<dt>Dealer</dt>
-					<dd>${Audit.DealerDBAName}</dd>
-					<dd class="dl-event-multi">${Audit.Street1}</dd>
-					<dd class="dl-event-multi">${Audit.City}, ${Audit.State} ${Audit.Zip}</dd>
-					<dd class="dl-event-multi">${Audit.WorkPhone}</dd>
-					<dt>Audit contact</dt>
-					<dd>${Audit.DealerContactName}</dd>
-					<dt>Title</dt>
-					<dd>${Audit.DealerContactTitle}</dd>
-				</dl>
+			<table class="valuetable">
+				<tr>
+					<td class="label">Dealer</td>
+					<td class="value">
+						${Audit.DealerDBAName}<br />
+						${Audit.Street1}<br />
+						${Audit.City}, ${Audit.State} ${Audit.Zip}<br />
+						${Audit.WorkPhone}
+					</td>
+				</tr>
+				<tr>
+					<td class="label">Audit contact</td>
+					<td class="value">${Audit.DealerContactName}</td>
+				</tr>
+				<tr>
+					<td class="label">Title</td>
+					<td class="value">${Audit.DealerContactTitle}</td>
+				</tr>
+			</table>
+			
+			<table class="valuetable">
+				<tr>
+					<td class="label">Audit date</td>
+					<td class="value">
+						#if ($Audit.IsComplete)
+						$Audit.CompletedDate
+						#end
+					</td>
+				</tr>
+				<tr>
+					<td class="label">Auditor</td>
+					<td class="value">${Audit.CompletedUser.Name}</td>
+				</tr>
+				<tr>
+					<td class="label">Company</td>
+					<td class="value">${Audit.CompletedUser.ClientName}</td>
+				</tr>
+			</table>
+			
+			<!--<dl class="dl-event">
+			    	<dt>Dealer</dt>
+			    	<dd>${Audit.DealerDBAName}</dd>
+			    	<dd class="dl-event-multi">${Audit.Street1}</dd>
+			    	<dd class="dl-event-multi">${Audit.City}, ${Audit.State} ${Audit.Zip}</dd>
+			    	<dd class="dl-event-multi">${Audit.WorkPhone}</dd>
+			    	<dt>Audit contact</dt>
+			    	<dd>${Audit.DealerContactName}</dd>
+			    	<dt>Title</dt>
+			    	<dd>${Audit.DealerContactTitle}</dd>
+			    </dl>
 			
 				<dl class="dl-event">
 					<dt>Audit date</dt>
 					<dd>
 						#if ($Audit.IsComplete)
-							$Audit.CompletedDate
+						$Audit.CompletedDate
 						#end
 					</dd>
 					<dt>Auditor</dt>
 					<dd>${Audit.CompletedUser.Name}</dd>
 					<dt>Company</dt>
 					<dd>${Audit.CompletedUser.ClientName}</dd>
-				</dl>
+				</dl>-->
 			
 		</div>
 		
 		#parse($Layout.ReportTemplate)
-
+		</div>
 	</body>
 </html>

@@ -5,6 +5,6 @@ Description = A summary and detail of the audit.
 
 ;Theme = default
 ;Theme = /themes/default/theme.css
-;Script = report.js
+;Script = report.min.js
 ;Template = report.html
 ;TemplateLayout = /layouts/layout.html

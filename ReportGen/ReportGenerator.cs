@@ -11,37 +11,41 @@ namespace ReportGen
 	public class ReportGenerator
 	{
 		IReportRepository reportRep;
-		IJsLibRepository jsLibRep;
 
-
-		public ReportGenerator(IReportRepository reportRep, IJsLibRepository jsLibRep)
+		public ReportGenerator(IReportRepository reportRep)
 		{
 			this.reportRep = reportRep;
-			this.jsLibRep = jsLibRep;
 		}
 
+		public string GetReportHtml(string reportKey, Context context)
+		{
+			return GetReportHtml(reportKey, context.audit, context);			
+		}
 
 		public string GetReportHtml(string reportKey, IAudit auditModel)
 		{
+			var context = new ReportContext.Context(auditModel);
+			return GetReportHtml(reportKey, auditModel, context);
+		}
+
+		public string GetReportHtml(string reportKey, IAudit auditModel, Context context)
+		{
 			var report = reportRep.GetReport(reportKey);
-			var jsLib = jsLibRep.GetJsLib();
-			var templateModel = new NormalizedVelocityContext();
 
 
-			// add the layout to the template model
-			templateModel.put("Layout", new Layout
-			    {
-			        Title = report.Name,
+			// create the context and add layout info to the template
+			context.template.put("Layout", new Layout
+				{
+					Title = report.Name,
 					CSS = GraphPkgResourceLoader.LoadResource(report.GetThemeResourcePath()),
 					ReportTemplate = report.GetTemplateResourcePath()
-			    });
-			templateModel.put("Audit", auditModel);
-
-
-			// create the context and execute the javascript
-			var context = new ReportContext.Context(auditModel, templateModel);
+				});
+			context.template.put("Audit", auditModel);
+			
+			
+			// execute the JavaScript
 			var jsExec = new JavaScriptExecutor();
-			var allScripts = jsLib.Source + ";" + GraphPkgResourceLoader.LoadResource(report.GetScriptResourcePath());
+			var allScripts = GraphPkgResourceLoader.LoadResource(report.GetScriptResourcePath());
 			var jsRet = jsExec.ExecuteFunction(allScripts, "generateReport", new object[] { context });
 
 			
@@ -60,7 +64,7 @@ namespace ReportGen
 			ve.Init(props);
 			var writer = new StringWriter();
 			var t = ve.GetTemplate(report.GetLayoutTemplateResourcePath());
-			t.Merge(context.Template, writer);
+			t.Merge(context.template, writer);
 			var reportHtml = writer.ToString();
 			return reportHtml;
 		}

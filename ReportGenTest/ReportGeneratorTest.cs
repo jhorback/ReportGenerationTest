@@ -1,6 +1,7 @@
 ﻿using LaunchTechnologies.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ReportGen;
+using ReportGen.ReportContext;
 using ReportGenTest.Mocks;
 
 namespace ReportGenTest
@@ -68,14 +69,31 @@ namespace ReportGenTest
 		public void GetReportHtml_Execute_HtmlReturned()
 		{
 			IReportRepository reportRep = new ReportRepository();
-			IJsLibRepository jsLibRep = new JsLibRepository();
 			IAudit auditModel = new MockAudit();
-			var generator = new ReportGenerator(reportRep, jsLibRep);
+			var generator = new ReportGenerator(reportRep);
 
 			var report = generator.GetReportHtml("report1", auditModel);
 			
 			Assert.IsTrue(string.IsNullOrEmpty(report) == false);
 			ResultViewer.ViewResult(report);
+		}
+		
+
+		[TestMethod]
+		public void GetReportHtml_ExecuteWithException_ExceptionHandled()
+		{
+			IReportRepository reportRep = new ReportRepository();
+			IAudit auditModel = new MockAudit();
+			var generator = new ReportGenerator(reportRep);
+
+			var context = new Context(auditModel);
+			context.template.put("GenerateError", true);
+			var report = generator.GetReportHtml("report1", context);
+
+			var expected = "An error occured during report generation: Testing errors caused by report generation.";
+			var actual = context.logger.getLog()[0];
+
+			Assert.AreEqual(expected, actual);
 		}
 	}
 }

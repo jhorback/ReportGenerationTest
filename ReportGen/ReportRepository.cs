@@ -31,6 +31,8 @@ namespace ReportGen
 					// parse the ini and create the report object
 					var parser = new FileIniDataParser();
 					var infoTxtPath = Path.Combine(reportDir.FullName, "info.txt");
+					if (File.Exists(infoTxtPath) == false)
+						continue;
 					var infoData = parser.LoadFile(infoTxtPath, relaxedIniRead: true);
 					var report = new Report
 					    {

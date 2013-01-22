@@ -8,8 +8,8 @@ require 'net/http'
 # images_dir = "images"
 # javascripts_dir = "javascripts"
 css_dir = "GraphPkg/Themes"
-sass_dir = "SASS"
-images_dir = "SASS/images"
+sass_dir = "sass"
+images_dir = "sass/images"
 
 
 
